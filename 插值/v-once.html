@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h1>{{message}}</h1>
+  <!-- v-once 只会编译一次-->
+  <h1 v-once>{{message}}</h1>
+  <h2 v-html="url"></h2>
+</div>
+<script src="../lib/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "hello",
+      url: '<a href="http://www.baidu.com">Baidu</a>'
+    }
+  })
+</script>
+</body>
+</html>

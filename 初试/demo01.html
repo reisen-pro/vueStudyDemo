@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<script src="../lib/vue.js"></script>
+<body>
+<div id="app">
+  {{message}}
+  <ul>
+    <li v-for="item in array">{{item}}</li>
+  </ul>
+  <h2>{{count}}</h2>
+  <button v-on:click="add">+</button>
+  <button @click="sub">-</button>
+
+  <input id="input">
+
+  <button @click="addArray">新增选项</button>
+  <button @click="subArray()">删除选项</button>
+</div>
+</body>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: "hello",
+      array: ["A", "B", "C", "D"],
+      count: 0
+    },
+    methods: {
+      add() {
+        this.count++;
+      },
+      sub() {
+        this.count--;
+      },
+      addArray() {
+        this.array.push("E");
+      },
+      subArray() {
+        this.array.splice(0, 1);
+      }
+    }
+  })
+</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<style>
+  .active {
+    color: red;
+  }
+</style>
+
+练习：点击哪一个，哪一个变成红色
+<div id="app">
+  <ui>
+    <li v-on:click="changeColor(index)" :class="{'active':count==index}" v-for="(movie,index) in movies">{{movie}}</li>
+  </ui>
+</div>
+<script src="../lib/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      movies: ['哈利波特', '变形金刚', '速度与激情', '千与千寻'],
+      activeClass: true,
+      count: 0
+    },
+    methods: {
+      changeColor(index) {
+        this.count = index;
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

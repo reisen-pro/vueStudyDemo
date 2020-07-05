@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <ul>
+    <li v-for="name in names">{{name}}</li>
+  </ul>
+  <!--遍历时拿到下标值-->
+  <ul>
+    <li v-for="(name,index) in names">{{index+1}}.{{name}}</li>
+  </ul>
+</div>
+<script src="../lib/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello',
+      names: ['a', 'b', 'c', 'd']
+    }
+  })
+</script>
+
+</body>
+</html>

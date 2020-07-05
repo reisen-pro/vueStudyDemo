@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+
+<!--  以后基本上不会用到-->
+  <style>
+    [v-cloak] {
+    display: none;
+  }
+  </style>
+
+
+</head>
+<body>
+
+
+<!--cloak 斗篷 没有值的时候就不显示-->
+<div id="app" v-cloak>
+  <h1>{{message}}</h1>
+</div>
+<script src="../lib/vue.js"></script>
+<script>
+  // 在VUE解析之前，div中有一个属性v - cloak
+  // 在vue解析之后，div中没有一个属性 v-cloak
+  // 延迟一秒
+  setTimeout(function () {
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello'
+      }
+    })
+  }, 1000)
+
+</script>
+
+</body>
+</html>

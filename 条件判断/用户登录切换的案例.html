@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+
+  <!--for 聚焦哪个空间-->
+  <!--  placeholder输入框默认显示内容-->
+
+  <!--
+  切换后，input里输入的内容依然存在，这是因为vue使用了diff算法。只改变了不同的地方
+  此时需要对input设置key属性，实现区别
+  key相同的话，则判断是同一个。
+  -->
+  <span v-if="isUser">
+    <label for="username">用户登录</label>
+    <input type="text" id="username" placeholder="用户账号" key ="userName">
+  </span>
+
+  <span v-else>
+    <label for="userEmail">邮箱登录</label>
+    <input type="text" id="userEmail" placeholder="用户邮箱" key ="email">
+  </span>
+  <button @click="isUser = !isUser">切换类型</button>
+</div>
+<script src="../lib/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello',
+      isUser: true
+    }
+  })
+</script>
+
+</body>
+</html>
