@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <!--  <input type="text" v-model="message">-->
+
+  <!--  <input type="text" :value="message" @input="valueChange">-->
+
+  <!--  <input type="text" v-model="message">-->
+  <!--  等同于 <input type="text" :value="message" @input="message = $event.target.value">-->
+  <input type="text" :value="message" @input="message = $event.target.value">
+
+  <h2>{{message}}</h2>
+
+</div>
+<script src="../lib/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello'
+    },
+    methods: {
+      // event 可以省略
+      valueChange(event) {
+        // 多观察event中的属性
+        console.log(event);
+        this.message = event.target.value;
+        console.log('-----');
+      }
+    }
+  })
+</script>
+
+</body>
+</html>
