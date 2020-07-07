@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<!-- script标签 类型是 text/x-template-->
+<!--<script type="text/x-template" id="cpn">-->
+<!--  <di>-->
+<!--    <h2>我是一个h2</h2>-->
+<!--    <p>我是一个p</p>-->
+<!--  </di>-->
+<!--</script>-->
+
+<!-- template标签-->
+<template id="cpn">
+  <di>
+    <h2>我是一个h2</h2>
+    <p>我是一个p</p>
+    {{title}}
+  </di>
+</template>
+
+<div id="app">
+  <cpn></cpn>
+</div>
+<script src="../lib/vue.js"></script>
+<script>
+
+  //注册一个全局组件
+
+  Vue.component('cpn', {
+    template: '#cpn',
+    data() {
+      return {
+        title: 'abc'
+      }
+    }
+  })
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello',
+
+    }
+  })
+</script>
+
+</body>
+</html>
