@@ -12,15 +12,21 @@
   </label>
   <h3>您选择的是:{{isAgree}}</h3>
 
-  <label for=" ">
-    <input type="checkbox" value="篮球" v-model="hobbies">篮球
-    <input type="checkbox" value="足球" v-model="hobbies">足球
-    <input type="checkbox" value="乒乓球" v-model="hobbies">乒乓球
-    <input type="checkbox" value="羽毛球" v-model="hobbies">羽毛球
-  </label>
+  <!--  <label >-->
+  <!--    <input type="checkbox" value="篮球" v-model="hobbies">篮球-->
+  <!--    <input type="checkbox" value="足球" v-model="hobbies">足球-->
+  <!--    <input type="checkbox" value="乒乓球" v-model="hobbies">乒乓球-->
+  <!--    <input type="checkbox" value="羽毛球" v-model="hobbies">羽毛球-->
+  <!--  </label>-->
 
   <h3>您的爱好是:{{hobbies}}</h3>
   <button :disabled="!isAgree">下一步</button>
+
+
+  <label v-for="item in orignHobbies" :for="item">
+    <input type="checkbox" :value="item" :id="item" v-model="hobbies">{{item}}
+  </label>
+  <h3>{{orignHobbies}}</h3>
 </div>
 
 <script src="../lib/vue.js"></script>
@@ -30,7 +36,8 @@
     data: {
       message: 'hello',
       isAgree: false,
-      hobbies: []
+      hobbies: [],
+      orignHobbies: ['篮球', '足球', '乒乓球', '羽毛球', '网球']
     }
   })
 </script>

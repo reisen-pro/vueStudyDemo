@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <!-- lazy 在失去焦点时才去改变值-->
+  <input type="text" v-model.lazy="message">
+  <h2>{{message}}</h2>
+
+  <!-- number 不需要类型转换了,直接就是数字类型-->
+  <input type="number" v-model.number="age">
+  <h2>{{typeof age}}</h2>
+
+  <!--  trim() 去除两边空格-->
+  <input type="text" v-model.trim="name">
+  <h2>{{name}}</h2>
+</div>
+<script src="../lib/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello',
+      age: 18,
+      name: '';
+    }
+  })
+</script>
+
+</body>
+</html>
