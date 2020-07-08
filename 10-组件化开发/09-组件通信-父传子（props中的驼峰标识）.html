@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<template id="cpn">
+
+  <!--  必须要有一个根节点-->
+  <!--  <h2>{{cInfo}}</h2>-->
+  <!--  <h3>{{childMyMessage}}</h3>-->
+
+  <div>
+    <h2>{{cInfo}}</h2>
+    <h3>{{childMyMessage}}</h3>
+  </div>
+
+</template>
+
+<div id="app">
+  <!--  不支持驼峰-->
+  <!--  cInfo-->
+  <!--  可以使用下面c-info-->
+  <cpn :c-info="info" :child-my-message="childMyMessage"></cpn>
+</div>
+<script src="../lib/vue.js"></script>
+<script>
+
+  //父传子 ：props
+  const cpn = {
+    template: '#cpn',
+    props: {
+      cInfo: {
+        type: Object,
+        default() {
+          return {}
+        }
+      },
+      childMyMessage: {
+        type: String,
+        default() {
+          return '';
+        }
+      }
+    }
+  }
+
+  Vue.component('cpn')
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello',
+      info: {
+        name: 'name',
+        age: '18',
+        height: 1.88
+      },
+      childMyMessage: 'childMyMessage'
+    },
+    components: {
+      cpn
+    }
+  })
+</script>
+
+</body>
+</html>
