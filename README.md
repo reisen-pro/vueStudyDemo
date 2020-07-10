@@ -23,3 +23,7 @@ https://www.bilibili.com/video/BV15741177Eh?p=61
 # 2020-7-10
 P67
 https://www.bilibili.com/video/BV15741177Eh?p=67
+
+# 2020-7-10
+P69
+https://www.bilibili.com/video/BV15741177Eh?p=69

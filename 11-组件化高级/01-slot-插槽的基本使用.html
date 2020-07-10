@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<!--
+可以设置默认值
+如果有多个值，同时放到组件中，则一起放进去
+-->
+
+<template id="cpn">
+  <div>
+    <h2>我是一个h2</h2>
+    <p>我是一个p</p>
+    <!--    <button>按钮</button>-->
+    <!--    希望这个是可变的-->
+    <!--    如果没有传，则显示默认设置的，这里中间的 button 填的默认的值-->
+    <slot>
+      <button></button>
+    </slot>
+  </div>
+</template>
+
+<div id="app">
+  <cpn>
+    <button>按钮</button>
+  </cpn>
+  <cpn>
+    <input type="checkbox" :value="next">下一步
+    <i>i</i>
+    <div>div</div>
+  </cpn>
+  <cpn><i>bbb</i></cpn>
+</div>
+<script src="../lib/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello'
+    },
+    components: {
+      cpn: {
+        template: '#cpn'
+      }
+    }
+  })
+</script>
+
+</body>
+</html>
