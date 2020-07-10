@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<div id="app">
+  <!-- 可以使用单标签 <cpn :number1="num1" :number2="num2"/>-->
+  <cpn :number1="num1"
+       :dnumber1="num1"
+       :number2="num2"
+       :dnumber2="num2"
+       @num1change="num1change"
+       @num2change="num2change"
+  >
+
+  </cpn>
+</div>
+
+<template id="cpn">
+  <div>
+    <h2>props:{{number1}}</h2>
+    <h2>data:{{dnumber1}}</h2>
+    <!--    <input type="text" v-model="dnumber1">-->
+    <input type="text" :value="dnumber1" @input="num1Input">
+    <h2>props:{{number2}}</h2>
+    <h2>data:{{dnumber2}}</h2>
+    <!--    <input type="text" v-model="dnumber2">-->
+    <input type="text" :value="dnumber2" @input="num2Input">
+  </div>
+</template>
+<script src="../lib/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      num1: 1,
+      num2: 0
+    },
+    components: {
+      cpn: {
+        template: `#cpn`,
+        props: {
+          number1: Number,
+          number2: Number
+        },
+        data() {
+          return {
+            dnumber1: this.number1,
+            dnumber2: this.number2
+          }
+        },
+        methods: {
+          num1Input(event) {
+            // 将input中的value赋值到dnumber中
+            this.dnumber1 = event.target.value;
+            // 发射一个事件让父组件处理
+            this.$emit('num1change', this.dnumber1);
+            // 同时修改dnumber2的值
+            this.dnumber2 = this.dnumber1 * 100;
+            this.$emit('num2change',this.dnumber2)
+          },
+          num2Input(event) {
+            this.dnumber2 = event.target.value;
+            this.$emit('num2change', this.dnumber2);
+          }
+        }
+      }
+    },
+    methods: {
+      num1change(value) {
+        this.num1 = parseInt(value);
+      },
+      num2change(value) {
+        this.num2 = parseInt(value);
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

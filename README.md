@@ -19,3 +19,7 @@ P58
 # 2020-7-9
 P61
 https://www.bilibili.com/video/BV15741177Eh?p=61
+
+# 2020-7-10
+P67
+https://www.bilibili.com/video/BV15741177Eh?p=67
