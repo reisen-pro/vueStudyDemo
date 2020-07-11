@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<!--
+1.项目组长
+2.开发A
+3.开发B
+
+
+全局变量同名的问题。
+这种代码对导入js依赖的顺序是有问题的
+
+在匿名函数内部，定义一个对象。
+给对象题添加各种需要暴露到外面的属性和方法（不需要爆率的直接定义即可）。
+常用的模块化规范：
+commonjs，AMD，CMD，也有es6的modules
+
+采用已经规范好的模块化风格
+
+commonsjs导出语法
+导出语法
+module.exports = {
+    flag:flag,
+    sum:sum
+  }
+导入
+
+var(flag,sum) = require('./a.js')
+var flag = aaa.flag;
+var sum = aaa.sum;
+
+
+-->
+
+<script src="main.js"></script>
+<script src="a.js"></script>
+<script src="b.js"></script>
+<script src="aa.js"></script>
+<script src="bb.js"></script>
+
+</body>
+</html>

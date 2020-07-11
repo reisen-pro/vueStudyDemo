@@ -27,3 +27,7 @@ https://www.bilibili.com/video/BV15741177Eh?p=67
 # 2020-7-10
 P69
 https://www.bilibili.com/video/BV15741177Eh?p=69
+
+# 2020-7-11
+P69 ES模块化的导入和导出
+https://www.bilibili.com/video/BV15741177Eh?p=74
