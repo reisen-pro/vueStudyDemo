@@ -35,3 +35,25 @@ https://www.bilibili.com/video/BV15741177Eh?p=74
 # 2020-7-11 12:56 一阶段部分完结，可供后续参考。
 P76 Webpack的基本使用
 https://www.bilibili.com/video/BV15741177Eh?p=76
+
+#2020-7-13 目前进度 P81
+webpack ES6转ES5的labe1
+https://www.bilibili.com/video/BV15741177Eh?p=81
+
+#2020-7-13 中午 P83
+https://www.bilibili.com/video/BV15741177Eh?p=83
+
+#2020-7-14 晚 P88 webpack-dev-server搭建本地服务器
+https://www.bilibili.com/video/BV15741177Eh?p=88
+
+#2020-7-15 中 webpack配置分离
+https://www.bilibili.com/video/BV15741177Eh?p=89
+
+#2020-7-16 中 vue-cli脚手架的介绍与安装
+https://www.bilibili.com/video/BV15741177Eh?p=90
+
+#2020-7-16 晚
+https://www.bilibili.com/video/BV15741177Eh?p=92
+
+#2020-7-17 中
+https://www.bilibili.com/video/BV15741177Eh?p=93
