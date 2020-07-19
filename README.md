@@ -3,7 +3,7 @@
 
 # 2020-7-6
 目前是跟着视频学到了P44
-# https://www.bilibili.com/video/BV15741177Eh?p=45
+https://www.bilibili.com/video/BV15741177Eh?p=45
 
 # 2020-7-7
 P51开始学习组件化
@@ -57,3 +57,6 @@ https://www.bilibili.com/video/BV15741177Eh?p=92
 
 #2020-7-17 中
 https://www.bilibili.com/video/BV15741177Eh?p=93
+
+#2020-7-20 凌晨 vue-router 打包文件的解析
+https://www.bilibili.com/video/BV15741177Eh?p=108
