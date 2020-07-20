@@ -90,3 +90,6 @@ https://www.bilibili.com/video/BV15741177Eh?p=93
 
 #2020-7-20 凌晨 vue-router 打包文件的解析
 https://www.bilibili.com/video/BV15741177Eh?p=108
+
+#2020-7-20 中 路由懒加载的使用
+https://www.bilibili.com/video/BV15741177Eh?p=109
