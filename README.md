@@ -93,3 +93,6 @@ https://www.bilibili.com/video/BV15741177Eh?p=108
 
 #2020-7-20 中 路由懒加载的使用
 https://www.bilibili.com/video/BV15741177Eh?p=109
+
+#2020-7-20 晚 v-router传递参数
+https://www.bilibili.com/video/BV15741177Eh?p=111

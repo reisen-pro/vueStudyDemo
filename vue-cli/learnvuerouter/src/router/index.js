@@ -1,10 +1,18 @@
 // 配置路由器相关信息
 import VueRouter from 'vue-router';
 import Vue from 'vue';
+//import HomeMessage from "../components/HomeMessage";
 
-import Home from '../components/Home';
-import About from '../components/About';
-import User from '../components/User';
+// import Home from '../components/Home';
+// import About from '../components/About';
+// import User from '../components/User';
+
+const Home = () => import('../components/Home');
+const About = () => import('../components/About');
+const User = () => import('../components/User');
+
+const HomeNews = () => import('../components/HomeNews');
+const HomeMessage = () => import('../components/HomeMessage');
 
 //  1.通过Vue.use(插件)，安装插件
 Vue.use(VueRouter)
@@ -18,7 +26,21 @@ const routes = [
   },
   {
     path: '/home',
-    component: Home
+    component: Home,
+    children: [
+      {
+        path: '',
+        redirect: 'news'
+      },
+      {
+        // 不需要加/
+        path: 'news',
+        component: HomeNews
+      }, {
+        path: 'message',
+        component: HomeMessage
+      }
+    ]
   },
   {
     //  这里多打了一个空格结果就对不上了。
@@ -26,7 +48,7 @@ const routes = [
     component: About
   },
   {
-    path:'/user/:userId',
+    path: '/user/:userId',
     component: User
   }
 ];
