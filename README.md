@@ -102,3 +102,6 @@ https://www.bilibili.com/video/BV15741177Eh?p=113
 
 #2020-7-21 晚 tabber-基本结构的搭建
 https://www.bilibili.com/video/BV15741177Eh?p=118
+
+#2020-7-22 凌晨 tabbar-TabBar和TabBarItem组件封装
+https://www.bilibili.com/video/BV15741177Eh?p=119
