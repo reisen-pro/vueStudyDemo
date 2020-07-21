@@ -11,14 +11,16 @@
     <!--    <button @click="aboutClick">关于</button>-->
     <router-link to="/home">首页</router-link>
     <router-link to="/about">关于</router-link>
-    <!--    <router-link v-bind:to="'/user/'+userId">用户</router-link>-->
-    <!--    <router-link :to="{path:'/profile',query:{name:'code',age:'18',height:'180'}}">档案</router-link>-->
+    <router-link v-bind:to="'/user/'+userId">用户</router-link>
+    <router-link :to="{path:'/profile',query:{name:'code',age:'18',height:'180'}}">档案</router-link>
 
-    <button @click="userClick">用户</button>
-    <button @click="profileClick">档案</button>
+<!--    <button @click="userClick">用户</button>-->
+<!--    <button @click="profileClick">档案</button>-->
 
-
-    <router-view></router-view>
+<!--    把组件排除在外，消亡时回调用destroyed方法 不能加空格-->
+    <keep-alive exclude="user,Profile">
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 
