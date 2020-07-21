@@ -96,3 +96,6 @@ https://www.bilibili.com/video/BV15741177Eh?p=109
 
 #2020-7-20 晚 v-router传递参数
 https://www.bilibili.com/video/BV15741177Eh?p=111
+
+#2020-7-21 中 vue-router-router和route的由来
+https://www.bilibili.com/video/BV15741177Eh?p=113
