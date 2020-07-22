@@ -105,3 +105,6 @@ https://www.bilibili.com/video/BV15741177Eh?p=118
 
 #2020-7-22 凌晨 tabbar-TabBar和TabBarItem组件封装
 https://www.bilibili.com/video/BV15741177Eh?p=119
+
+#2020-7-22 中 TabBarItem和路由结合
+https://www.bilibili.com/video/BV15741177Eh?p=121
