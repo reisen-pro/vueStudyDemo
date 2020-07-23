@@ -59,4 +59,7 @@
     margin-bottom: 2px;
   }
 
+  .active {
+    color: #87cefa;
+  }
 </style>
