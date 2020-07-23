@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('hello world');
+      reject('error message');
+    }, 1000)
+  }).then(data => {
+    console.log(data);
+  }, err => {
+    console.log(err);
+  })
+</script>
+
+</body>
+</html>

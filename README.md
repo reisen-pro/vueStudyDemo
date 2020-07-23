@@ -115,5 +115,8 @@ https://www.bilibili.com/video/BV15741177Eh?p=123
 #2020-7-23 中 文件路径的引用问题
 https://www.bilibili.com/video/BV15741177Eh?p=124
 
-#2020-7-24 凌晨 Promise的三种形态和另外的处理方式
+#2020-7-23 晚 Promise的三种形态和另外的处理方式
 https://www.bilibili.com/video/BV15741177Eh?p=126
+
+#2020-7-24 凌晨 Promise的all方法使用
+https://www.bilibili.com/video/BV15741177Eh?p=128
