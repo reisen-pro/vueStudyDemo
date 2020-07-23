@@ -111,3 +111,6 @@ https://www.bilibili.com/video/BV15741177Eh?p=121
 
 #2020-7-23 凌晨 知识回顾
 https://www.bilibili.com/video/BV15741177Eh?p=123
+
+#2020-7-24 中 文件路径的引用问题
+https://www.bilibili.com/video/BV15741177Eh?p=124
