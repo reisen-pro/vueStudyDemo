@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+  // 要求传入一个可迭代的对象
+  Promise.all([
+  //   new Promise((resolve, reject) => {
+  //     $.ajax({
+  //       url: 'url1',
+  //       success: function (data) {
+  //         resolve(data)
+  //       }
+  //     })
+  //   }),
+  //   new Promise((resolve, reject) => {
+  //     $.ajax({
+  //       url: 'url2',
+  //       success: function (data) {
+  //         resolve(data)
+  //       }
+  //     })
+  //   })
+  // ]).then(result=>{
+  //   console.log(result[0]);
+  //   console.log(result[1]);
+  // })
+
+  new Promise((resolve, reject) => {
+    setTimeout(()=>{
+      resolve({name:'code1',age:18})
+    },2000)
+  }),
+  new Promise((resolve, reject) => {
+        setTimeout(()=>{
+          resolve({name:'code2',age:30})
+        },2000)
+      })
+  ]).then(result=>{
+     console.log(result[0]);
+     console.log(result[1]);
+   })
+</script>
+
+</body>
+</html>
