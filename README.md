@@ -121,5 +121,8 @@ https://www.bilibili.com/video/BV15741177Eh?p=126
 #2020-7-24 凌晨 Promise的all方法使用
 https://www.bilibili.com/video/BV15741177Eh?p=128
 
-#2020-7-27 中 VueX作用和解析
+#2020-7-24 中 VueX作用和解析
 https://www.bilibili.com/video/BV15741177Eh?p=129
+
+#2020-7-25 下午 开始学习axios
+https://www.bilibili.com/video/BV15741177Eh?p=142
