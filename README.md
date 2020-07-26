@@ -129,3 +129,6 @@ https://www.bilibili.com/video/BV15741177Eh?p=142
 
 #2020-7-26 凌晨 vue教程结束，开始项目阶段
 https://www.bilibili.com/video/BV15741177Eh?p=147
+
+#2020-7-27 凌晨 保存商品的数据结构设计
+https://www.bilibili.com/video/BV15741177Eh?p=160
