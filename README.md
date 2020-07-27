@@ -132,3 +132,6 @@ https://www.bilibili.com/video/BV15741177Eh?p=147
 
 #2020-7-27 凌晨 保存商品的数据结构设计
 https://www.bilibili.com/video/BV15741177Eh?p=160
+
+#2020-7-27 中午 首页商品数据的展示
+https://www.bilibili.com/video/BV15741177Eh?p=162

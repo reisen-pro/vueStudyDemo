@@ -122,7 +122,8 @@
 
   import {
     getHomeMultidataBanner,
-    getHomeMultidataRecommend
+    getHomeMultidataRecommend,
+    getHomeGoods
   }
     from "network/home"
 
@@ -140,23 +141,40 @@
       return {
         banners: [],
         recommends: [],
-        titles: ['流行', '新款', '精选']
+        titles: ['流行', '新款', '精选'],
+        goods: {
+          'pop': {page: 0, list: []},
+          'news': {page: 0, list: []},
+          'sell': {page: 0, list: []},
+        }
       }
     },
     created() {
       // 1.请求多个数据
-      getHomeMultidataBanner().then(res => {
-        console.log(res)
-        this.banners = res.data;
-        console.log('---------')
-        console.log(this.banners)
-      })
+      this.getHomeMultidataBanner();
 
-      getHomeMultidataRecommend().then(res => {
-        this.recommends = res.data;
-      })
+      // 2.请求商品数据
+      this.getHomeGoods('pop');
+      this.getHomeGoods('news');
+      this.getHomeGoods('sell');
+    },
+    methods: {
+      getHomeMultidataBanner() {
+        getHomeMultidataBanner().then(res => {
+          this.banners = res.data;
+        })
+        getHomeMultidataRecommend().then(res => {
+          this.recommends = res.data;
+        })
+      },
+      getHomeGoods(type) {
+        const page = this.goods[type].page + 1;
+        getHomeGoods(type, page).then(res => {
+          this.goods[type].push(...res.data)
+          this.goods[type].page += 1
+        })
+      }
     }
-
   }
 </script>
 
