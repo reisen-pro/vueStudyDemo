@@ -135,3 +135,6 @@ https://www.bilibili.com/video/BV15741177Eh?p=160
 
 #2020-7-27 中午 首页商品数据的展示
 https://www.bilibili.com/video/BV15741177Eh?p=162
+
+#2020-7-28 凌晨 Better-Scroll的安装和使用
+https://www.bilibili.com/video/BV15741177Eh?p=164
