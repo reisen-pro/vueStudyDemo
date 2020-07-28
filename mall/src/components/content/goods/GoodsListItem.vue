@@ -27,7 +27,6 @@
   .goods-item {
     padding-bottom: 40px;
     position: relative;
-
     width: 47%;
   }
 
