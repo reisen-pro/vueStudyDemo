@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper" ref="">
+  <div class="wrapper">
     <ul class="content">
       <li>分类列表1</li>
       <li>分类列表2</li>
@@ -120,9 +120,7 @@
       }
     },
     mounted() {
-      this.scroll = new BScroll(document.querySelector('.wrapper'), {
-
-      })
+      this.scroll = new BScroll('.wrapper');
     }
     // // 组件创建完后调用
     // created() {
@@ -132,11 +130,11 @@
 </script>
 
 <style scoped>
-  .content {
+  .wrapper {
     height: 150px;
     background-color: #b5d592;
 
-    overflow: hidden;
+    /*overflow: hidden;*/
     /* 会将超出的部分自动隐藏 */
     /*overflow-y: scroll;*/
   }
