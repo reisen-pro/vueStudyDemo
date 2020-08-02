@@ -141,3 +141,6 @@ https://www.bilibili.com/video/BV15741177Eh?p=164
 
 #2020-7-30 中午  这几天要加班。鸽几天 视频到21分
 https://www.bilibili.com/video/BV15741177Eh?p=165 
+
+#2020-8-2 继续学习。
+https://www.bilibili.com/video/BV15741177Eh?p=170

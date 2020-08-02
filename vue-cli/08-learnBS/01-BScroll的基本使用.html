@@ -16,6 +16,7 @@
 
 <div class="content">
   <ul>
+    <button class="btn">按钮</button>
     <li>列表数据1</li>
     <li>列表数据2</li>
     <li>列表数据3</li>
@@ -127,11 +128,25 @@
     // 0默认 1不侦测 0和1都不侦测
     // 2手指滚动侦测
     // 3只要是滚动都侦测
-    probeType: 2
+    probeType: 3,
+    click: true,
+    pullUpLoad: true
   })
 
   bscroll.on('scroll', (position) => {
-    console.log(position);
+    //console.log(position);
+  })
+
+  bscroll.on('pullingUp', () => {
+    console.log('上拉加载更多');
+
+    setTimeout(() => {
+      bscroll.finishPullUp()
+    }, 2000)
+  })
+
+  document.querySelector('.btn').addEventListener('click', function () {
+    console.log("监听")
   })
 </script>
 </body>

@@ -1,13 +1,19 @@
 <template>
-  <div id="home">
+  <div id="home" class="wrapper">
     <nav-bar class="home-nav">
       <div slot="center">购物街</div>
     </nav-bar>
-    <home-swiper :banners="banners"></home-swiper>
-    <recommend-view :recommends="recommends"></recommend-view>
-    <feature-view></feature-view>
-    <tab-control class="tab-control" :titles="titles" @tabClick="tabClick"></tab-control>
-    <goods-list :goods="showGoods"></goods-list>
+
+    <scroll class="content" ref="scroll" :probe-type="3" @scroll="contentScroll">
+      <home-swiper :banners="banners"></home-swiper>
+      <recommend-view :recommends="recommends"></recommend-view>
+      <feature-view></feature-view>
+      <tab-control class="tab-control" :titles="titles" @tabClick="tabClick"></tab-control>
+      <goods-list :goods="showGoods"></goods-list>
+
+    </scroll>
+
+    <back-top @click.native="backClick" v-show="isShowBackTop"></back-top>
   </div>
 </template>
 
@@ -20,23 +26,31 @@
   import TabControl from "components/content/tabControl/TabControl";
   import GoodsList from "components/content/goods/GoodsList";
 
+  import BScroll from 'components/common/scroll/Scroll'
+
+  import BackTop from "components/content/backTop/BackTop";
+
   import {
     getHomeMultidataBanner,
     getHomeMultidataRecommend,
     getHomeGoods
   }
     from "network/home"
+  import Scroll from "../../components/common/scroll/Scroll";
 
 
   export default {
     name: "Home",
     components: {
+      Scroll,
       NavBar,
       HomeSwiper,
       FeatureView,
       TabControl,
       RecommendView,
-      GoodsList
+      GoodsList,
+      BScroll,
+      BackTop
     },
     data() {
       return {
@@ -49,9 +63,10 @@
           'sell': {page: 0, list: []},
         },
         currentType: 'pop',
+        isShowBackTop: false
       }
     },
-    computed:{
+    computed: {
       showGoods() {
         return this.goods[this.currentType].list
       }
@@ -81,9 +96,16 @@
             break
         }
         this.currentType = type;
-        console.log('currentType'+this.currentType)
+        console.log('currentType' + this.currentType)
+      },
+      // 回滚到顶部
+      backClick() {
+        this.$refs.scroll.scrollTo(0, 0, 500);
       },
 
+      contentScroll(position) {
+        this.isShowBackTop = Math.abs(position.y) > 1000;
+      },
       /**
        *  网络请求相关的代码
        */
@@ -110,6 +132,8 @@
 <style scoped>
   #home {
     padding-top: 44px;
+    height: 100vh;
+    position: relative;
   }
 
   .home-nav {
@@ -126,5 +150,16 @@
   .tab-control {
     position: sticky;
     top: 44px;
+    z-index: 9;
+  }
+
+  .content {
+    /*height: calc(100% - 93px);*/
+    overflow: hidden;
+    position: absolute;
+    top: 44px;
+    bottom: 49px;
+    left: 0;
+    right: 0;
   }
 </style>
