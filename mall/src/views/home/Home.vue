@@ -4,7 +4,11 @@
       <div slot="center">购物街</div>
     </nav-bar>
 
-    <scroll class="content" ref="scroll" :probe-type="3" @scroll="contentScroll">
+    <scroll class="content" ref="scroll"
+            :probe-type="3"
+            @scroll="contentScroll"
+            :pull-up-load="true"
+            @pullingUp="loadMore">
       <home-swiper :banners="banners"></home-swiper>
       <recommend-view :recommends="recommends"></recommend-view>
       <feature-view></feature-view>
@@ -106,6 +110,10 @@
       contentScroll(position) {
         this.isShowBackTop = Math.abs(position.y) > 1000;
       },
+
+      loadMore(){
+        this.getHomeGoods(this.currentType);
+      },
       /**
        *  网络请求相关的代码
        */
@@ -123,6 +131,7 @@
           this.goods[type].list.push(...res.data)
           this.goods[type].page += 1
 
+          this.$refs.scroll.finishPullUp();
         })
       }
     }
