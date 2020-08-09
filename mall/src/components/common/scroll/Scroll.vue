@@ -40,7 +40,7 @@
         this.$emit('scroll', position)
       })
 
-      // 3.监控上拉事件
+      // 3.监听上拉事件
       this.scroll.on('pullingUp', () => {
         this.$emit('pullingUp')
       })

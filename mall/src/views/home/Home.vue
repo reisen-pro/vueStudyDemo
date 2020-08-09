@@ -83,6 +83,11 @@
       this.getHomeGoods('pop');
       this.getHomeGoods('news');
       this.getHomeGoods('sell');
+
+      // 3.监听item中图片加载完成
+      this.$bus.on('itemImageLoad', () => {
+        console.log('-------')
+      })
     },
     methods: {
 
@@ -111,7 +116,7 @@
         this.isShowBackTop = Math.abs(position.y) > 1000;
       },
 
-      loadMore(){
+      loadMore() {
         this.getHomeGoods(this.currentType);
       },
       /**

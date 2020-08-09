@@ -145,5 +145,5 @@ https://www.bilibili.com/video/BV15741177Eh?p=165
 #2020-8-2 继续学习。
 https://www.bilibili.com/video/BV15741177Eh?p=170
 
-#2020-8-9 凌晨 最近工作任务比较紧张，周末调整一下，继续学习
+#2020-8-9 凌晨 最近工作任务比较紧张，周末调整一下， 继续学习
 https://www.bilibili.com/video/BV15741177Eh?p=172
