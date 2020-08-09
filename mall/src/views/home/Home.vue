@@ -75,6 +75,23 @@
         return this.goods[this.currentType].list
       }
     },
+    mounted() {
+
+      const refresh = this.debounce(this.$refs.scroll.refresh)
+
+/*      const refresh = function (...args) {
+        if (timer) clearTimeout(timer)
+        timer = setTimeout(() => {
+          func.apply(this, args)
+        }, delay)
+      }*/
+
+        this.debounce(this.$refs.scroll.refresh, 500)
+      // 监听item中图片加载完成
+      this.$bus.$on('itemImageLoad', () => {
+        this.$refs.scroll.refresh()
+      })
+    },
     created() {
       // 1.请求多个数据
       this.getHomeMultidataBanner();
@@ -84,13 +101,21 @@
       this.getHomeGoods('news');
       this.getHomeGoods('sell');
 
-      // 3.监听item中图片加载完成
-      this.$bus.$on('itemImageLoad', () => {
-        this.$refs.scroll.refresh()
-      })
     },
     methods: {
+      /**
+       * 事件监听相关的方法
+       */
+      debounce(func, delay) {
+        let timer = null
+        return function () {
+          if (timer) clearTimeout(timer)
 
+          timer = setTimeout((...args) => {
+            func.apply(this, args)
+          }, delay)
+        }
+      },
       tabClick(index) {
         let type = 'pop';
         switch (index) {
