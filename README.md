@@ -139,13 +139,13 @@ https://www.bilibili.com/video/BV15741177Eh?p=162
 #2020-7-28 凌晨 Better-Scroll的安装和使用
 https://www.bilibili.com/video/BV15741177Eh?p=164
 
-#2020-7-30 中午  这几天要加班。鸽几天
+#2020-7-30 中午  这几天有点忙，鸽几天
 https://www.bilibili.com/video/BV15741177Eh?p=165 
 
 #2020-8-2 继续学习。
 https://www.bilibili.com/video/BV15741177Eh?p=170
 
-#2020-8-9 凌晨 最近工作任务比较紧张，周末调整一下， 继续学习
+#2020-8-9 凌晨 上周一点忙，到周末了，调整一下节奏， 继续学习
 https://www.bilibili.com/video/BV15741177Eh?p=172
 
 #2020-8-10 视频到21分
