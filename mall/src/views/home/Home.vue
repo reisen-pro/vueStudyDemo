@@ -77,7 +77,7 @@
     },
     mounted() {
 
-      const refresh = this.debounce(this.$refs.scroll.refresh)
+      const refresh = this.debounce(this.$refs.scroll.refresh,200)
 
 /*      const refresh = function (...args) {
         if (timer) clearTimeout(timer)
@@ -86,7 +86,6 @@
         }, delay)
       }*/
 
-        this.debounce(this.$refs.scroll.refresh, 500)
       // 监听item中图片加载完成
       this.$bus.$on('itemImageLoad', () => {
         this.$refs.scroll.refresh()
