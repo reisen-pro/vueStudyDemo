@@ -4,16 +4,30 @@
       <div slot="center">购物街</div>
     </nav-bar>
 
-    <scroll class="content" ref="scroll"
+    <tab-control :titles="titles"
+                 @tabClick="tabClick"
+                 ref="tabControlTop"
+                 class="tab-control"
+                 v-show="isTabFixed"/>
+
+    <scroll class="content"
+            ref="scroll"
             :probe-type="3"
             @scroll="contentScroll"
             :pull-up-load="true"
             @pullingUp="loadMore">
-      <home-swiper :banners="banners"></home-swiper>
-      <recommend-view :recommends="recommends"></recommend-view>
-      <feature-view></feature-view>
-      <tab-control class="tab-control" :titles="titles" @tabClick="tabClick"></tab-control>
-      <goods-list :goods="showGoods"></goods-list>
+      <home-swiper :banners="banners"
+                   @swiperImageLoad="swiperImageLoad"/>
+
+      <recommend-view :recommends="recommends"/>
+
+      <feature-view/>
+
+      <tab-control :titles="titles"
+                   @tabClick="tabClick"
+                   ref="tabControl"/>
+
+      <goods-list :goods="showGoods"/>
 
     </scroll>
 
@@ -25,6 +39,8 @@
   import HomeSwiper from "./childComps/HomeSwiper";
   import RecommendView from "./childComps/RecommendView";
   import FeatureView from "./childComps/FeatureView";
+
+  import {debounce} from "common/utils";
 
   import NavBar from "components/common/navbar/NavBar";
   import TabControl from "components/content/tabControl/TabControl";
@@ -67,7 +83,9 @@
           'sell': {page: 0, list: []},
         },
         currentType: 'pop',
-        isShowBackTop: false
+        isShowBackTop: false,
+        tabOffsetTop:0,
+        isTabFixed:false
       }
     },
     computed: {
@@ -77,8 +95,6 @@
     },
     mounted() {
 
-      const refresh = this.debounce(this.$refs.scroll.refresh,200)
-
 /*      const refresh = function (...args) {
         if (timer) clearTimeout(timer)
         timer = setTimeout(() => {
@@ -87,9 +103,13 @@
       }*/
 
       // 监听item中图片加载完成
+      const refresh = debounce(this.$refs.scroll.refresh,200)
       this.$bus.$on('itemImageLoad', () => {
         this.$refs.scroll.refresh()
       })
+
+      // 获取tabcontrol的offsettop
+      this.tabOffsetTop = this.$refs.tabControl.$el.offsetTop
     },
     created() {
       // 1.请求多个数据
@@ -105,16 +125,6 @@
       /**
        * 事件监听相关的方法
        */
-      debounce(func, delay) {
-        let timer = null
-        return function () {
-          if (timer) clearTimeout(timer)
-
-          timer = setTimeout((...args) => {
-            func.apply(this, args)
-          }, delay)
-        }
-      },
       tabClick(index) {
         let type = 'pop';
         switch (index) {
@@ -129,7 +139,8 @@
             break
         }
         this.currentType = type;
-        console.log('currentType' + this.currentType)
+        this.$refs.tabControlTop.currentIndex = index;
+        this.$refs.tabControl.currentIndex = index;
       },
       // 回滚到顶部
       backClick() {
@@ -137,11 +148,18 @@
       },
 
       contentScroll(position) {
+        // 判断backtop是否显示
         this.isShowBackTop = Math.abs(position.y) > 1000;
+
+        // 决定tabcontrol是否吸顶
+        this.isTabFixed =  Math.abs(position.y) > this.tabOffsetTop
       },
 
       loadMore() {
         this.getHomeGoods(this.currentType);
+      },
+      swiperImageLoad() {
+        this.tabOffsetTop = this.$refs.tabControl.$el.offsetTop
       },
       /**
        *  网络请求相关的代码
@@ -169,7 +187,7 @@
 
 <style scoped>
   #home {
-    padding-top: 44px;
+    /*padding-top: 44px;*/
     height: 100vh;
     position: relative;
   }
@@ -178,18 +196,26 @@
     background-color: var(--color-tint);
     color: white;
 
+/*  在使用浏览器原生滚动时，为了让导航不跟随一起滚动
     position: fixed;
     left: 0;
     right: 0;
     top: 0;
-    z-index: 9;
+    z-index: 9;*/
   }
 
   .tab-control {
-    position: sticky;
-    top: 44px;
+    position: relative;
     z-index: 9;
   }
+
+  .fixed {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 44px;
+  }
+
 
   .content {
     /*height: calc(100% - 93px);*/
