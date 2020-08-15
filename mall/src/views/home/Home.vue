@@ -84,8 +84,9 @@
         },
         currentType: 'pop',
         isShowBackTop: false,
-        tabOffsetTop:0,
-        isTabFixed:false
+        tabOffsetTop: 0,
+        isTabFixed: false,
+        saveY: 0
       }
     },
     computed: {
@@ -93,17 +94,26 @@
         return this.goods[this.currentType].list
       }
     },
+    destroyed() {
+    },
+    activated() {
+      this.$refs.scroll.scrollTo(0, this.saveY, 10)
+      this.$refs.scroll.refresh()
+    },
+    deactivated() {
+      this.saveY = this.$refs.scroll.getScrollY()
+    },
     mounted() {
 
-/*      const refresh = function (...args) {
-        if (timer) clearTimeout(timer)
-        timer = setTimeout(() => {
-          func.apply(this, args)
-        }, delay)
-      }*/
+      /*      const refresh = function (...args) {
+              if (timer) clearTimeout(timer)
+              timer = setTimeout(() => {
+                func.apply(this, args)
+              }, delay)
+            }*/
 
       // 监听item中图片加载完成
-      const refresh = debounce(this.$refs.scroll.refresh,200)
+      const refresh = debounce(this.$refs.scroll.refresh, 200)
       this.$bus.$on('itemImageLoad', () => {
         this.$refs.scroll.refresh()
       })
@@ -152,7 +162,7 @@
         this.isShowBackTop = Math.abs(position.y) > 1000;
 
         // 决定tabcontrol是否吸顶
-        this.isTabFixed =  Math.abs(position.y) > this.tabOffsetTop
+        this.isTabFixed = Math.abs(position.y) > this.tabOffsetTop
       },
 
       loadMore() {
@@ -196,12 +206,12 @@
     background-color: var(--color-tint);
     color: white;
 
-/*  在使用浏览器原生滚动时，为了让导航不跟随一起滚动
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    z-index: 9;*/
+    /*  在使用浏览器原生滚动时，为了让导航不跟随一起滚动
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 9;*/
   }
 
   .tab-control {
