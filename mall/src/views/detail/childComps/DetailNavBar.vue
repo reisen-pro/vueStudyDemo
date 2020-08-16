@@ -12,7 +12,6 @@
         </div>
       </div>
     </nav-bar>
-    详情页
   </div>
 </template>
 

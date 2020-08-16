@@ -56,7 +56,7 @@
     getHomeGoods
   }
     from "network/home"
-  import Scroll from "../../components/common/scroll/Scroll";
+  import Scroll from "components/common/scroll/Scroll";
 
 
   export default {
