@@ -29,11 +29,11 @@ export class GoodsInfo {
  */
 export class Shop {
   constructor(shopInfo) {
-    this.logo = shopInfo.shopLogo;
+    this.logo = shopInfo.logo;
     this.name = shopInfo.name;
-    this.fans = shopInfo.cFans;
-    this.sells = shopInfo.cSells;
+    this.fans = shopInfo.fans;
+    this.sells = shopInfo.sells;
     this.score = shopInfo.score;
-    this.goodsCount = shopInfo.cGoods
+    this.goodsCount = shopInfo.goodsCount
   }
 }

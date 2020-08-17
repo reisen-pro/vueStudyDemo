@@ -1,6 +1,6 @@
 <template>
   <div id="detail">
-    <detail-nav-bar/>
+    <detail-nav-bar class="detail-nav"/>
     <scroll class="content">
       <detail-swiper :top-images="topImages"/>
       <detail-base-info :goods-info="goodsInfo"/>
@@ -62,7 +62,7 @@
         this.shop = new Shop(data.shopInfo)
 
         // 保存商品的详情数据
-        this.detailInfo = data.detailInfo;
+        this.detailInfo = data.detailImage;
       })
     },
     methods: {
