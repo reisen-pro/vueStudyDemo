@@ -2,12 +2,15 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 /*使用时再加载*/
-const Home = () => import('views/login/login');
+const Login = () => import('views/login/Login');
 
 Vue.use(VueRouter)
 
 const routes = [
-
+  {
+    path: '/login',
+    component: Login
+  }
 ]
 
 const router = new VueRouter({
